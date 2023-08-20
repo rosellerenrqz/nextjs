@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Card from "../UI/Card";
 
-const MeetupForm = () => {
+const MeetupForm = (props) => {
   const TitleInputRef = useRef();
   const ImageInputRef = useRef();
   const AddressInputRef = useRef();
@@ -22,6 +22,9 @@ const MeetupForm = () => {
       description: enteredDescription,
     };
 
+    //to new meetup page
+    props.onAddMeetup(meetupData);
+
     TitleInputRef.current.value = "";
     ImageInputRef.current.value = "";
     AddressInputRef.current.value = "";
@@ -30,7 +33,7 @@ const MeetupForm = () => {
 
   return (
     <Card>
-      <form onSubmit={submitHandler} className="p-4 text-black">
+      <form onSubmit={submitHandler} className="p-4 text-[--font-color]">
         <div className="mb-2 uppercase">
           <label htmlFor="title" className="mb-2 block font-bold">
             Meetup Title
@@ -40,7 +43,8 @@ const MeetupForm = () => {
             id="title"
             placeholder="Meetup Title"
             ref={TitleInputRef}
-            className="block w-full rounded-md border border-gray-200 p-1"
+            required
+            className="block w-full rounded-md border border-gray-200 p-1 text-black"
           />
         </div>
         <div className="mb-2 uppercase">
@@ -52,7 +56,8 @@ const MeetupForm = () => {
             id="image"
             placeholder="Meetup Image"
             ref={ImageInputRef}
-            className="block w-full rounded-md border border-gray-200 p-1"
+            required
+            className="block w-full rounded-md border border-gray-200 p-1 text-black"
           />
         </div>
         <div className="mb-2 uppercase">
@@ -64,7 +69,8 @@ const MeetupForm = () => {
             id="address"
             placeholder="Meetup Address"
             ref={AddressInputRef}
-            className="block w-full rounded-md border border-gray-200 p-1"
+            required
+            className="block w-full rounded-md border border-gray-200 p-1 text-black"
           />
         </div>
         <div className="mb-2 uppercase">
@@ -75,7 +81,8 @@ const MeetupForm = () => {
             rows="5"
             id="description"
             ref={DescriptionInputRef}
-            className="block w-full rounded-md border border-gray-200"
+            required
+            className="block w-full rounded-md border border-gray-200 text-black"
           />
         </div>
         <div className="text-center">

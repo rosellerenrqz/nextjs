@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --dark-color: #272829;
+  --lightdark-color: #313233;
+  --font-color: #d1d5db;
+  --light-color: #eeeded;
+}
+
 * {
   @apply box-border;
 }

@@ -1,14 +1,16 @@
 import React from "react";
-import Layout from "@/components/Layout/Layout";
 import MeetupForm from "@/components/Meetup/MeetupForm";
 
-const index = () => {
+const NewMeetUpPage = () => {
+  const addMeetupHandler = (enteredMeetupData) => {
+    console.log(enteredMeetupData);
+  };
+
   return (
     <>
-      <Layout />
-      <MeetupForm />
+      <MeetupForm onAddMeetup={addMeetupHandler} />
     </>
   );
 };
 
-export default index;
+export default NewMeetUpPage;
