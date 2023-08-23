@@ -42,13 +42,28 @@ const HomePage = (props) => {
   );
 };
 
+// //run on server after deployment
+// //can perform with credentials that should not expose on client
+// export const getServerSideProps = ({ context }) => {
+//   const req = context.req;
+//   const res = context.res;
+
+//   //fetch from api
+
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS,
+//     },
+//   };
+// };
+
 export const getStaticProps = () => {
   return {
     //used in homepage in passing data
     props: {
       meetups: DUMMY_MEETUPS,
     },
-    revalidate: 1,
+    revalidate: 1, //seconds to regenerate for upcoming request
   };
 };
 
