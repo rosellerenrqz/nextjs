@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { MongoClient } from "mongodb";
 import MeetupList from "@/components/Meetup/MeetupList";
 
@@ -35,6 +36,10 @@ const DUMMY_MEETUPS = [
 const HomePage = (props) => {
   return (
     <React.Fragment>
+      <Head>
+        <title>Meetups</title>
+        <meta name="description" content="Browse active Meetups" />
+      </Head>
       <h1 className="mb-2 text-center text-2xl font-bold uppercase text-white">
         All Meetups
       </h1>

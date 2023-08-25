@@ -1,6 +1,7 @@
+import Head from "next/head";
 import { useState } from "react";
-import MeetupForm from "@/components/Meetup/MeetupForm";
 import { useRouter } from "next/router";
+import MeetupForm from "@/components/Meetup/MeetupForm";
 
 //api route is in api file name
 //enteredMeetupData stores form object
@@ -34,6 +35,10 @@ const NewMeetUpPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Meetups</title>
+        <meta name="description" content="Add your own Meetups" />
+      </Head>
       <MeetupForm onAddMeetup={addMeetupHandler} isLoading={isLoading} />
     </>
   );

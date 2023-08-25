@@ -1,10 +1,15 @@
 import React from "react";
+import Head from "next/head";
 import { MongoClient, ObjectId } from "mongodb";
 import MeetupDetail from "@/components/Meetup/MeetupDetail";
 
 const MeetupDetailPage = (props) => {
   return (
     <React.Fragment>
+      <Head>
+        <title>Meetups</title>
+        <meta name="description" content={props.meetupData.description} />
+      </Head>
       <h1 className="mb-2 text-center text-2xl font-bold uppercase text-white">
         Meetup Detail
       </h1>
