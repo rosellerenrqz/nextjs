@@ -60,6 +60,8 @@ export const getStaticProps = async () => {
     description: meetup.description,
   }));
 
+  client.close();
+
   return {
     props: {
       meetups: mappedMeetups,
