@@ -1,4 +1,5 @@
 import React from "react";
+import { MongoClient } from "mongodb";
 import MeetupList from "@/components/Meetup/MeetupList";
 
 const DUMMY_MEETUPS = [
@@ -42,28 +43,28 @@ const HomePage = (props) => {
   );
 };
 
-// //run on server after deployment
-// //can perform with credentials that should not expose on client
-// export const getServerSideProps = ({ context }) => {
-//   const req = context.req;
-//   const res = context.res;
+export const getStaticProps = async () => {
+  const client = await MongoClient.connect(
+    "mongodb+srv://test:x0AUXfRrMdkdUe14@cluster0.mijxkzw.mongodb.net/meetups?retryWrites=true&w=majority",
+  );
 
-//   //fetch from api
+  const db = client.db();
+  const meetupsColletion = db.collection("meetups");
+  const meetups = await meetupsColletion.find().toArray();
 
-//   return {
-//     props: {
-//       meetups: DUMMY_MEETUPS,
-//     },
-//   };
-// };
+  const mappedMeetups = meetups.map((meetup) => ({
+    id: meetup._id.toString(),
+    title: meetup.title,
+    image: meetup.image,
+    address: meetup.address,
+    description: meetup.description,
+  }));
 
-export const getStaticProps = () => {
   return {
-    //used in homepage in passing data
     props: {
-      meetups: DUMMY_MEETUPS,
+      meetups: mappedMeetups,
     },
-    revalidate: 1, //seconds to regenerate for upcoming request
+    revalidate: 1, //validate every 1s
   };
 };
 

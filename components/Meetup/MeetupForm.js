@@ -86,8 +86,11 @@ const MeetupForm = (props) => {
           />
         </div>
         <div className="text-center">
-          <button className="rounded-md bg-blue-500 px-4 py-2 text-white  hover:bg-blue-400 active:bg-blue-300">
-            Add Meetup
+          <button
+            disabled={props.isLoading}
+            className="rounded-md bg-blue-500 px-4 py-2 text-white  hover:bg-blue-400 active:bg-blue-300"
+          >
+            {props.isLoading ? "Adding..." : "Add Meetup"}
           </button>
         </div>
       </form>
