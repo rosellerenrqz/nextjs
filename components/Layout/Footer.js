@@ -21,10 +21,10 @@ const Footer = () => {
           >
             <FacebookRoundedIcon className="mx-2 text-2xl text-gray-300 hover:text-blue-400" />
           </Link>
-          <Link href="https://instagram.com/rosellerenriquez">
+          <Link href="https://instagram.com/rosellerenriquez" target="_blank">
             <InstagramIcon className="mx-2 text-2xl text-gray-300 hover:text-blue-400" />
           </Link>
-          <Link href="https://github.com/rosellerenrqz">
+          <Link href="https://github.com/rosellerenrqz" target="_blank">
             <GitHubIcon className="mx-2 text-2xl text-gray-300 hover:text-blue-400" />
           </Link>
         </main>
